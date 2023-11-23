@@ -23,7 +23,7 @@ const CountryList: React.FC<Props> = ({onSelectCountry}) => {
   }, [fetchCountries]);
 
   return (
-    <div className="col-3 me-3">
+    <div className="col-4">
       <h2>Countries:</h2>
       <ul className="list-group">
         {countries.map((country) => (

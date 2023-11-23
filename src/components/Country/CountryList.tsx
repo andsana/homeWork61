@@ -3,7 +3,7 @@ import axios, {AxiosResponse} from 'axios';
 import type {Country} from '../../types';
 
 interface Props {
-  onSelectCountry: React.MouseEventHandler;
+  onSelectCountry: (countryCode: string) => void;
 }
 
 const CountryList: React.FC<Props> = ({onSelectCountry}) => {
@@ -19,15 +19,18 @@ const CountryList: React.FC<Props> = ({onSelectCountry}) => {
   }, []);
 
   useEffect(() => {
-    void  fetchCountries();
+    void fetchCountries();
   }, [fetchCountries]);
 
   return (
-    <div>
+    <div className="col-3 me-3">
       <h2>Countries:</h2>
-      <ul className="list-group col-2">
+      <ul className="list-group">
         {countries.map((country) => (
-          <li className="list-group-item" key={country.alpha3Code} onClick={onSelectCountry}>
+          <li
+            className="list-group-item"
+            key={country.alpha3Code}
+            onClick={() => onSelectCountry(country.alpha3Code)}>
             {country.name}
           </li>
         ))}

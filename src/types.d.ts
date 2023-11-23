@@ -1,5 +1,4 @@
 export interface Character {
-  alpha3Code: string;
   name: string;
   capital: string;
   population: number;

@@ -10,6 +10,7 @@ function App() {
     <div className="row">
       <CountryList onSelectCountry={onSelectCountry}/>
     </div>
+
   );
 }
 
